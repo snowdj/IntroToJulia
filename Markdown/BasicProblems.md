@@ -1,5 +1,9 @@
 
-#### Problem 1
+## Starter Problems
+
+#### Note: These 4 problems are from https://lectures.quantecon.org/jl/julia_by_example.html
+
+#### Strang Matrix Problem
 
 Use Julia's array and control flow syntax in order to define the NxN Strang matrix:
 
@@ -11,87 +15,75 @@ $$ \left[\begin{array}{ccccc}
  &  &  & 1 & -2
 \end{array}\right] $$
 
+i.e. a matrix with `-2` on the diagonal, 1 on the off-diagonals, and 0 elsewere.
+
+#### Factorial Problem*
+
+Using a `for` loop, write a function `my_factorial(n)` that computes the `n`th factorial. Try your function on integers like `15`
+
+Bonus: Use `BigInt` inputs like `big(100)`. Make your function's output type match the input type for `n`. You'll know that you'll successfully matched the input type if your output does not "overflow" to negative, and you can check `typeof(x)`. Hint, you may want to initialize a value using `one(x)`, which is the value `1` in the type that matches `x`.
+
+#### Binomial Problem*
+
+A random variable `X~Bin(n,p)` is defined the number of successes in `n` trials where each trial has a success probability `p`. For example, if `Bin(10,0.5)`, then `X` is the number of coin flips that turn up heads in `10` flips. 
+
+Using only `rand()` (uniform random numbers), write a function `binomial_rv(n,p)` that produces one draw of `Bin(n,p)`.
+
+#### Monte Carlo $\pi$ Problem*
+
+Use random number generation to estimate $\pi$. To do so, mentally draw the unit circle. It is encompassed in the square $[-1,1]\times[-1,1]$. The area of the circle is $\pi r^2 = \pi$. The area of the square is $4$. Thus if points are randomly taken evenly from $[-1,1]\times[-1,1]$, then the probability they land in the circle ($x^2 + y^2\leq 1$) is $\frac{\pi}{4}$. Use this to estimate $\pi$.
+
+## Integration Problems
+
+These problems integrate basic workflow tools to solve some standard data science and scientific computing problems.
+
+#### Timeseries Generation Problem*
+
+An AR1 timeseries is defined by
+
+$$ x_{t+1} = \alpha x_i + \epsilon_{t+1} $$
+
+where $x_0 = 0$ and $t=0,\ldots,T$. The shocks ${\epsilon_t}$ are i.i.d. standard normal (`N(0,1)`, given by `randn()`). Using $T=200$ 
+
+1) $\alpha = 0$
+2) $\alpha = 0.5$
+3) $\alpha = 0.9$
+
+use Plots.jl to plot a timecourse for each of the parameters. Label the lines for the values of $\alpha$ that generate them using the `label` argument in `plot`.
+
+#### Regression Problem
 
 
 ```julia
-#### Prepare Data
+#### Prepare Data For Regression Problem
 
 X = rand(1000, 3)               # feature matrix
 a0 = rand(3)                    # ground truths
 y = X * a0 + 0.1 * randn(1000);  # generate response
+
+# Data For Regression Problem Part 2
+X = rand(100);
+y = 2X  + 0.1 * randn(100);
 ```
 
-#### Problem 2
+Given an Nx3 array of data (`randn(N,3)`) and a Nx1 array of outcomes, produce the data matrix `X` which appends a column of 1's to the front of the data matrix, and solve for the 4x1 array `β` via `βX = b` using `qrfact`, or `\`, or [the definition of the OLS estimator](https://en.wikipedia.org/wiki/Ordinary_least_squares#Estimation). (Note: This is linear regression).
 
-Given an Nx3 array of data (`randn(N,3)`) and a Nx1 array of outcomes, produce the data matrix `X` which appends a column of 1's to the data matrix, and solve for the 4x1 array `β` via `βX = b` using `qrfact` or `\`. (Note: This is linear regression)
+Compare your results to that of using `llsq` from `MultivariateStats.jl` (note: you need to go find the documentation to find out how to use this!). Compare your results to that of using ordinary least squares regression from `GLM.jl`.
 
-#### Problem 3
+#### Regression Problem Part 2
 
-Compare your results to that of using `llsq` from `MultivariateStats.jl` (note: you need to go find the documentation to find out how to use this!)
+Using your OLS estimator or one of the aforementioned packages, solve for the regression line using the (X,y) data above. Plot the (X,y) scatter plot using `scatter!` from Plots.jl. Add the regression line using `abline!`. Add a title saying "Regression Plot on Fake Data", and label the x and y axis.
 
-#### Problem 4
-
-Compare your results to that of using ordinary least squares regression from `GLM.jl`
-
-#### Problem 5
+#### Logistic Map Problem
 
 The logistic difference equation is defined by the recursion
 
 $$ b_{n+1}=r*b_{n}(1-b_{n}) $$
 
-where $b_{n}$ is the number of bunnies at time $n$. Starting with $b_{0}=.25$, by around $400$ iterations this will reach a steady state. This steady state (or steady periodic state) is dependent on $r$. Write a function which solves for the steady state(s) for each given $r$, and plot "every state" in the steady attractor for each $r$ (x-axis is $r$, $y$=value seen in the attractor) using Plots.jl. Take $r\in\left(2.9,4\right)$
+where $b_{n}$ is the number of bunnies at time $n$. Starting with $b_{0}=.25$, by around $400$ iterations this will reach a steady state. This steady state (or steady periodic state) is dependent on $r$. Write a function which plots the steady state attractor. This is done as follows:
 
-#### Problem 6
+1) Solve for the steady state(s) for each given $r$ (i.e. iterate the relation 400 times).
 
-Make a function `person_info(x)` where, if `x` is a any type of person, print their name. However, if `x` is a student, print their name and their grade. Make a new type which is a graduate student, and have it print their name and grade as well. If `x` is anything else, throw an error. Do not using branching (`if`), use multiple dispatch to solve the problem! 
+2) Calculate "every state" in the steady state attractor. This means, at steady state (after the first 400 iterations), save the next 150 values. Call this set of values $y_s(r)$.
 
-Note that in order to do this you will need to re-structure the type hierarchy. Make an AbstractPerson and AbstractStudent type, define the subclassing structure, and write dispatches on these abstract types. Note that you cannot define subclasses of concrete types!
-
-(Not only is the multiple-dispatch way more Julian, we will see later that it also has a lot of performance enhancements due to how it interacts with the compiler).
-
-#### Distribution Quantile Problem (From Josh Day)
-
-To find the quantile of a number `q` in a distribution, one can use a Newton method 
-
-$$ \theta_{n+1} = \theta_{n} - \frac{cdf(\theta)-q}{pdf(\theta)} $$
-
-to have $\theta_{n} \rightarrow$ the value of for the `q`th quantile. Use multiple dispatch to write a generic algorithm for which calculates the `q`th quantile of any `UnivariateDistribution` in Distributions.jl, and test your result against the `quantile(d::UnivariateDistribution,q::Number` function.
-
-Hint: Use $\theta_{0} = $ mean of the distribution
-
-#### Operator Problem
-
-In mathematics, a matrix is known to be a linear operator. In many cases, this can have huge performance advantages because, if you  know a function which "acts like a matrix" but does not form the matrix itself, you can save the time that it takes to allocate the matrix (sometimes the matrix may not fit in memory!)
-
-Therefore, instead of solving regressions on matrices, let's be brave and generalize our regression algorithm to work on any operator, and make it solve the problem for the Laplacian operator. Here are the steps that are required to do this:
-
-- Make an abstract type `AbstractOperator`
-- Re-define AbstractMatrix as a subtype
-- Define a concrete type `LaplacianOperator` which holds a function. This function `f(x)` should calculate the discrete Laplacian of `x` (i.e. multiply it on the left by the Strang matrix, but without forming the matrix!)
-- Write dispatches for `*(::LaplacianOperator,::Vector)`, `eltype(::LaplacianOperator)`, `size(::LaplacianOperator,d::Integer)`. 
-- Write `least_square(::Operator,::Vector)` to solve the least-square approximation problem `Ax=b` for any operator. Note that since you do not have a matrix, you cannot use `\` or factorizations like `qrfact`. Instead, take a look at `cg` in IterativeSolvers.jl
-- Test your least_square function vs `llsq` and `lm` (where you use the data matrix as a Strang matrix). Do you get the same result?
-
-#### Problem 8
-
-If you know `start`, `step`, and `stop`, how do you calculate the `i`th value? Can you create a function MyRange which where for `a` being a `MyRange`, and `a[i]` is the correct value? Use the Julia array interface in order to define the function for the `a[i]` syntax on your type.
-
-#### Problem 9
-
-Do ?linspace. Make your own LinSpace object using the array interface. 
-
-http://ucidatascienceinitiative.github.io/IntroToJulia/Html/ArrayIteratorInterfaces
-
-Do your implementations obay dimensional analysis? Try using the package `Unitful` to build arrays of numbers with units (i.e. an array of numbers who have values of Newtons), and see if you can make your LinSpace not give errors.
-
-#### Problem 10
-
-Check your implementation vs the source code of Ranges.jl. Tim Holy is the master of Julia arrays, learn from him!
-
-#### Problem 11
-
-Check out the call overloading notebook:
-
-http://ucidatascienceinitiative.github.io/IntroToJulia/Html/CallOverloading
-
-Overload the call on the UnitStepRange to give an interpolated value at intermediate points, i.e. if `a=1:2:10`, then `a(1.5)=2`.
+3) Do steps (1) and (2) with $r\in\left(2.9,4\right)$, `dr=.001`. Plot $r$ x-axis vs $y_s(r)$=value seen in the attractor) using Plots.jl. Your result should be the [Logistic equation bifurcation diagram](https://upload.wikimedia.org/wikipedia/commons/7/7d/LogisticMap_BifurcationDiagram.png).
