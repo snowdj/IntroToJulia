@@ -11631,8 +11631,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11645,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11780,7 +11784,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="o">+</span><span class="mi">2</span>
@@ -11800,7 +11804,7 @@ div#notebook {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[4.0,1.33333,1.0,20.0]
+<pre>[4.0, 1.33333, 1.0, 20.0]
 </pre>
 </div>
 </div>
@@ -11821,12 +11825,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">α</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">∇f</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">=</span> <span class="n">α</span><span class="o">*</span><span class="n">u</span><span class="p">;</span> <span class="n">∇f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="n">π</span><span class="p">)</span>
+<span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="nb">π</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11837,7 +11841,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11862,10 +11866,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">code_llvm</span> <span class="mi">2</span><span class="o">*</span><span class="mi">5</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_llvm</span> <span class="mi">2</span><span class="o">*</span><span class="mi">5</span>
 </pre></div>
 
 </div>
@@ -11879,8 +11883,7 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-; Function Attrs: uwtable
-define i64 @&#34;jlsys_*_43301&#34;(i64, i64) #0 {
+define i64 @&#34;jlsys_*_56568&#34;(i64, i64) #0 !dbg !5 {
 top:
   %2 = mul i64 %1, %0
   ret i64 %2
@@ -11905,10 +11908,10 @@ top:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">code_native</span> <span class="mi">2</span><span class="o">*</span><span class="mi">5</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_native</span> <span class="mi">2</span><span class="o">*</span><span class="mi">5</span>
 </pre></div>
 
 </div>
@@ -11953,7 +11956,7 @@ Source line: 33
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="mi">2</span><span class="o">^</span><span class="mi">5</span>
@@ -11967,7 +11970,7 @@ Source line: 33
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11982,7 +11985,7 @@ Source line: 33
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="mi">2</span><span class="o">^-</span><span class="mi">5</span>
@@ -11999,13 +12002,13 @@ Source line: 33
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
-LoadError: DomainError:
+DomainError:
 Cannot raise an integer x to a negative power -n. 
 Make x a float by adding a zero decimal (e.g. 2.0^-n instead of 2^-n), or write 1/x^n, float(x)^-n, or (x//1)^-n.
-while loading In[4], in expression starting on line 1
 
- in power_by_squaring(::Int64, ::Int64) at .\intfuncs.jl:118
- in ^(::Int64, ::Int64) at .\intfuncs.jl:142</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">power_by_squaring</span><span class="ansi-bold">(</span>::Int64, ::Int64<span class="ansi-bold">)</span> at <span class="ansi-bold">./intfuncs.jl:173</span>
+ [2] <span class="ansi-bold">literal_pow</span><span class="ansi-bold">(</span>::Base.#^, ::Int64, ::Type{Val{-5}}<span class="ansi-bold">)</span> at <span class="ansi-bold">./intfuncs.jl:208</span></pre>
 </div>
 </div>
 
@@ -12035,10 +12038,10 @@ while loading In[4], in expression starting on line 1
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">code_native</span> <span class="o">^</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_native</span> <span class="o">^</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12054,15 +12057,12 @@ while loading In[4], in expression starting on line 1
 <pre>	.text
 Filename: intfuncs.jl
 	pushq	%rbp
-Source line: 142
-	subq	$32, %rsp
-	leaq	32(%rsp), %rbp
+	movq	%rsp, %rbp
+Source line: 197
 	callq	power_by_squaring
-	nop
-	addq	$32, %rsp
 	popq	%rbp
 	retq
-	nopw	%cs:(%rax,%rax)
+	nopl	(%rax,%rax)
 </pre>
 </div>
 </div>
@@ -12083,14 +12083,14 @@ Source line: 142
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> expo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">expo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">y</span><span class="o">&gt;</span><span class="mi">0</span>
         <span class="k">return</span> <span class="n">x</span><span class="o">^</span><span class="n">y</span>
     <span class="k">else</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="nb">convert</span><span class="p">(</span><span class="kt">Float64</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="kt">Float64</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">x</span><span class="o">^</span><span class="n">y</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -12104,7 +12104,7 @@ Source line: 142
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12129,7 +12129,7 @@ Source line: 142
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">expo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -12151,7 +12151,7 @@ Source line: 142
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12176,10 +12176,10 @@ Source line: 142
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">code_native</span> <span class="n">expo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_native</span> <span class="n">expo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12193,102 +12193,58 @@ Source line: 142
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>	.text
-Filename: In[6]
+Filename: In[8]
 	pushq	%rbp
 	movq	%rsp, %rbp
-	pushq	%r14
-	pushq	%rsi
-	pushq	%rdi
 	pushq	%rbx
-	subq	$96, %rsp
-	movaps	%xmm6, -48(%rbp)
-	movq	%rdx, %rdi
-	movq	%rcx, %rbx
-	movabsq	$jl_get_ptls_states, %rax
-	callq	*%rax
-	movq	%rax, %rsi
-	xorps	%xmm0, %xmm0
-	movups	%xmm0, -64(%rbp)
-	movups	%xmm0, -80(%rbp)
-	movq	$8, -96(%rbp)
-	movq	(%rsi), %rax
-	movq	%rax, -88(%rbp)
-	leaq	-96(%rbp), %rax
-	movq	%rax, (%rsi)
+	subq	$24, %rsp
+	movq	%rdi, %rbx
 Source line: 2
-	movabsq	$jl_box_int64, %r14
-	movq	%rbx, %rcx
-	callq	*%r14
-	movq	%rax, -80(%rbp)
-	testq	%rdi, %rdi
-	jle	L146
+	testq	%rdx, %rdx
+	jle	L42
 Source line: 3
-	movq	%rax, -72(%rbp)
-	movq	(%rax), %rcx
 	movabsq	$power_by_squaring, %rax
-	movq	%rdi, %rdx
+	movq	%rsi, %rdi
+	movq	%rdx, %rsi
 	callq	*%rax
-	movq	%rax, %rcx
-	callq	*%r14
-	movq	-88(%rbp), %rcx
-	movq	%rcx, (%rsi)
-	movaps	-48(%rbp), %xmm6
-	addq	$96, %rsp
+	movb	$1, %dl
+	movq	%rax, (%rbx)
+	jmp	L106
+Source line: 5
+L42:
+	vxorps	%xmm1, %xmm1, %xmm1
+	vcvtsi2sdq	%rsi, %xmm1, %xmm0
+Source line: 701
+	vmovsd	%xmm0, -24(%rbp)
+	vcvtsi2sdq	%rdx, %xmm1, %xmm1
+Source line: 699
+	vmovsd	%xmm1, -16(%rbp)
+	movabsq	$pow, %rax
+	callq	*%rax
+	vmovsd	-16(%rbp), %xmm1        # xmm1 = mem[0],zero
+	vaddsd	-24(%rbp), %xmm1, %xmm1
+Source line: 300
+	vucomisd	%xmm1, %xmm1
+	jp	L100
+	vucomisd	%xmm0, %xmm0
+	jp	L116
+Source line: 6
+L100:
+	movb	$2, %dl
+	vmovsd	%xmm0, (%rbx)
+Source line: 3
+L106:
+	movq	%rbx, %rax
+	addq	$24, %rsp
 	popq	%rbx
-	popq	%rdi
-	popq	%rsi
-	popq	%r14
 	popq	%rbp
 	retq
-L146:
-	movl	$2148805808, %ebx       # imm = 0x80142CB0
-Source line: 5
-	movq	%rax, -64(%rbp)
-	movq	(%rax), %rax
-Source line: 6
-	cvtsi2sdq	%rax, %xmm6
-Source line: 5
-	movabsq	$jl_gc_pool_alloc, %r14
-	movl	$1488, %edx             # imm = 0x5D0
-	movl	$16, %r8d
-	movq	%rsi, %rcx
-	callq	*%r14
-	movq	%rbx, -8(%rax)
-	movsd	%xmm6, (%rax)
-	movq	%rax, -80(%rbp)
-Source line: 6
-	movq	%rax, -56(%rbp)
-	movslq	%edi, %rax
-	cmpq	%rdi, %rax
-	jne	L283
-	movabsq	$_powidf2, %rax
-	movapd	%xmm6, %xmm0
-	movl	%edi, %edx
-	callq	*%rax
-	movapd	%xmm0, %xmm6
-	movl	$1488, %edx             # imm = 0x5D0
-	movl	$16, %r8d
-	movq	%rsi, %rcx
-	callq	*%r14
-	movq	%rbx, -8(%rax)
-	movsd	%xmm6, (%rax)
-	movq	-88(%rbp), %rcx
-	movq	%rcx, (%rsi)
-	movaps	-48(%rbp), %xmm6
-	addq	$96, %rsp
-	popq	%rbx
-	popq	%rdi
-	popq	%rsi
-	popq	%r14
-	popq	%rbp
-	retq
-L283:
-	addq	$45616, %rbx            # imm = 0xB230
+Source line: 300
+L116:
 	movabsq	$jl_throw, %rax
-	movq	%rbx, %rcx
+	movabsq	$140181784264784, %rdi  # imm = 0x7F7E9D748050
 	callq	*%rax
-	ud2
-	nopw	%cs:(%rax,%rax)
+	nopw	(%rax,%rax)
 </pre>
 </div>
 </div>
@@ -12333,12 +12289,12 @@ L283:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> test1</span><span class="p">()</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">test1</span><span class="p">()</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
+    <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">4</span>
         <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -12356,10 +12312,10 @@ L283:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
-LoadError: BoundsError: attempt to access 3-element Array{Float64,1} at index [4]
-while loading In[28], in expression starting on line 7
+<span class="ansi-red-intense-fg">BoundsError: attempt to access 3-element Array{Float64,1} at index [4]</span>
 
- in test1() at ./In[28]:4</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">test1</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">./In[11]:4</span></pre>
 </div>
 </div>
 
@@ -12379,12 +12335,12 @@ while loading In[28], in expression starting on line 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> test2</span><span class="p">()</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">test2</span><span class="p">()</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="p">@</span><span class="n">inbounds</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
+    <span class="nd">@inbounds</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">4</span>
         <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -12427,13 +12383,13 @@ while loading In[28], in expression starting on line 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="kt">Any</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Any</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;hi!&quot;</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">:</span><span class="n">Symbolic</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">:</span><span class="n">Symbolic</span>
 <span class="n">a</span>
 </pre></div>
 
@@ -12445,7 +12401,7 @@ while loading In[28], in expression starting on line 7
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12473,10 +12429,10 @@ while loading In[28], in expression starting on line 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">{</span><span class="n">Union</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="kt">Int</span><span class="p">}}(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="kt">Int</span><span class="p">}}(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span>
@@ -12491,11 +12447,11 @@ while loading In[28], in expression starting on line 7
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3-element Array{Union{Float64,Int64},1}:
+<pre>3-element Array{Union{Float64, Int64},1}:
  1.0 
  3   
  0.25</pre>
@@ -12550,10 +12506,10 @@ while loading In[28], in expression starting on line 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">code_warntype</span> <span class="mi">2</span><span class="o">^</span><span class="mi">5</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_warntype</span> <span class="mi">2</span><span class="o">^</span><span class="mi">5</span>
 </pre></div>
 
 </div>
@@ -12567,13 +12523,13 @@ while loading In[28], in expression starting on line 7
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Variables:
-  #self#::Base.#^
+  #self# &lt;optimized out&gt;
   x::Int64
   p::Int64
 
 Body:
   begin 
-      return $(Expr(:invoke, LambdaInfo for power_by_squaring(::Int64, ::Int64), :(Base.power_by_squaring), :(x), :(p)))
+      return $(Expr(:invoke, MethodInstance for power_by_squaring(::Int64, ::Int64), :(Base.power_by_squaring), :(x), :(p)))
   end::Int64
 </pre>
 </div>
@@ -12595,10 +12551,10 @@ Body:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">code_warntype</span> <span class="n">expo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_warntype</span> <span class="n">expo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12612,20 +12568,38 @@ Body:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Variables:
-  #self#::#expo
+  #self# &lt;optimized out&gt;
   x@_2::Int64
   y::Int64
-  x@_4::ANY
+  x@_4<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span>
+  #temp#::Float64
 
 Body:
   begin 
-      x@_4::ANY = x@_2::Int64
-      unless (Base.slt_int)(0,y::Int64)::Bool goto 5 # line 3:
-      return $(Expr(:invoke, LambdaInfo for power_by_squaring(::Int64, ::Int64), :(Base.power_by_squaring), :(x@_4::Int64), :(y)))
+      x@_4<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span> = x@_2::Int64
+      unless (Base.slt_int)(0, y::Int64)::Bool goto 5 # line 3:
+      return $(Expr(:invoke, MethodInstance for power_by_squaring(::Int64, ::Int64), :(Base.power_by_squaring), :(x@_4::Int64), :(y)))
       5:  # line 5:
-      x@_4::ANY = (Base.box)(Float64,(Base.sitofp)(Float64,x@_4::Int64)) # line 6:
-      return (Base.Math.box)(Base.Math.Float64,(Base.Math.powi_llvm)(x@_4::Float64,(Base.box)(Int32,(Base.checked_trunc_sint)(Int32,y::Int64))))::Float64
-  end::UNION{FLOAT64,INT64}
+      x@_4<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span> = (Base.sitofp)(Float64, x@_4::Int64)::Float64 # line 6:
+      $(Expr(:inbounds, false))
+      # meta: location math.jl ^ 701
+      SSAValue(0) = (Base.sitofp)(Float64, y::Int64)::Float64
+      # meta: location math.jl ^ 699
+      SSAValue(3) = $(Expr(:foreigncall, &#34;llvm.pow.f64&#34;, Float64, svec(Float64, Float64), :(x@_4::Float64), 0, SSAValue(0), 0, :($(Expr(:llvmcall)))))
+      SSAValue(4) = (Base.add_float)(x@_4::Float64, SSAValue(0))::Float64
+      # meta: location math.jl nan_dom_err 300
+      unless (Base.and_int)((Base.ne_float)(SSAValue(3), SSAValue(3))::Bool, (Base.not_int)((Base.ne_float)(SSAValue(4), SSAValue(4))::Bool)::Bool)::Bool goto 19
+      #temp#::Float64 = (Base.Math.throw)($(QuoteNode(DomainError())))<span class="ansi-red-intense-fg ansi-bold">::Union{}</span>
+      goto 21
+      19: 
+      #temp#::Float64 = SSAValue(3)
+      21: 
+      # meta: pop location
+      # meta: pop location
+      # meta: pop location
+      $(Expr(:inbounds, :pop))
+      return #temp#::Float64
+  end<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span>
 </pre>
 </div>
 </div>
@@ -12657,11 +12631,11 @@ Body:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> foo</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="p">}(</span><span class="n">array</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="p">})</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">eachindex</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">foo</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="p">}(</span><span class="n">array</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="p">})</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">eachindex</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="n">val</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="c"># do algorithm X on val</span>
   <span class="k">end</span>
@@ -12676,7 +12650,7 @@ Body:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12701,10 +12675,10 @@ Body:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> inner_foo</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="n">Number</span><span class="p">}(</span><span class="n">val</span><span class="p">::</span><span class="n">T</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">inner_foo</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="kt">Number</span><span class="p">}(</span><span class="n">val</span><span class="o">::</span><span class="n">T</span><span class="p">)</span>
   <span class="c"># Do algorithm X on val</span>
 <span class="k">end</span>
 </pre></div>
@@ -12717,7 +12691,7 @@ Body:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12742,11 +12716,11 @@ Body:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> foo2</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="p">}(</span><span class="n">array</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="p">})</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">eachindex</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">foo2</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="p">}(</span><span class="n">array</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">N</span><span class="p">})</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">eachindex</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="n">inner_foo</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
   <span class="k">end</span>
 <span class="k">end</span>
@@ -12760,7 +12734,7 @@ Body:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12804,12 +12778,12 @@ Body:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> test</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">test</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
-    <span class="k">function</span><span class="nf"> test2</span><span class="p">()</span>
+    <span class="k">function</span> <span class="n">test2</span><span class="p">()</span>
         <span class="n">y</span><span class="o">+</span><span class="mi">3</span>
     <span class="k">end</span>
     <span class="n">test2</span><span class="p">()</span>
@@ -12824,7 +12798,7 @@ Body:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12849,11 +12823,11 @@ Body:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="k">function</span><span class="nf"> badidea</span><span class="p">()</span>
+<span class="k">function</span> <span class="n">badidea</span><span class="p">()</span>
     <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
 <span class="k">end</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">3.0</span>
@@ -12867,7 +12841,7 @@ Body:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12892,15 +12866,15 @@ Body:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="kd">const</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="k">function</span><span class="nf"> badidea</span><span class="p">()</span>
-    <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="kd">const</span> <span class="n">a_cons</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">function</span> <span class="n">badidea</span><span class="p">()</span>
+    <span class="n">a_cons</span> <span class="o">+</span> <span class="mi">2</span>
 <span class="k">end</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="c"># Works</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c"># Fails</span>
+<span class="n">a_cons</span> <span class="o">=</span> <span class="mi">4</span> <span class="c"># Works</span>
+<span class="n">a_cons</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c"># Fails</span>
 </pre></div>
 
 </div>
@@ -12913,7 +12887,7 @@ Body:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: redefining constant a
+<pre>WARNING: redefining constant a_cons
 </pre>
 </div>
 </div>
@@ -12921,8 +12895,7 @@ Body:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
-LoadError: invalid redefinition of constant a
-while loading In[1], in expression starting on line 6
+<span class="ansi-red-intense-fg">invalid redefinition of constant a_cons</span>
 </pre>
 </div>
 </div>
@@ -12944,11 +12917,11 @@ while loading In[1], in expression starting on line 6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">3.0</span>
-<span class="p">@</span><span class="n">time</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
+<span class="nd">@time</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">4</span>
     <span class="n">a</span> <span class="o">+=</span> <span class="n">i</span>
 <span class="k">end</span>
 </pre></div>
@@ -12963,7 +12936,7 @@ while loading In[1], in expression starting on line 6
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  0.000005 seconds (4 allocations: 64 bytes)
+<pre>  0.000006 seconds (4 allocations: 64 bytes)
 </pre>
 </div>
 </div>
@@ -12984,12 +12957,12 @@ while loading In[1], in expression starting on line 6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> timetest</span><span class="p">()</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">timetest</span><span class="p">()</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mf">3.0</span>
-    <span class="p">@</span><span class="n">time</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
+    <span class="nd">@time</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">4</span>
         <span class="n">a</span> <span class="o">+=</span> <span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>

@@ -1,7 +1,7 @@
 
 ## Starter Problems
 
-#### Note: These 4 problems are from https://lectures.quantecon.org/jl/julia_by_example.html
+#### Note: The 4 \* problems are from https://lectures.quantecon.org/jl/julia_by_example.html
 
 #### Strang Matrix Problem
 
@@ -45,34 +45,11 @@ $$ x_{t+1} = \alpha x_i + \epsilon_{t+1} $$
 
 where $x_0 = 0$ and $t=0,\ldots,T$. The shocks ${\epsilon_t}$ are i.i.d. standard normal (`N(0,1)`, given by `randn()`). Using $T=200$ 
 
-1) $\alpha = 0$
-2) $\alpha = 0.5$
-3) $\alpha = 0.9$
+1. $\alpha = 0$
+2. $\alpha = 0.5$
+3. $\alpha = 0.9$
 
 use Plots.jl to plot a timecourse for each of the parameters. Label the lines for the values of $\alpha$ that generate them using the `label` argument in `plot`.
-
-#### Regression Problem
-
-
-```julia
-#### Prepare Data For Regression Problem
-
-X = rand(1000, 3)               # feature matrix
-a0 = rand(3)                    # ground truths
-y = X * a0 + 0.1 * randn(1000);  # generate response
-
-# Data For Regression Problem Part 2
-X = rand(100);
-y = 2X  + 0.1 * randn(100);
-```
-
-Given an Nx3 array of data (`randn(N,3)`) and a Nx1 array of outcomes, produce the data matrix `X` which appends a column of 1's to the front of the data matrix, and solve for the 4x1 array `β` via `βX = b` using `qrfact`, or `\`, or [the definition of the OLS estimator](https://en.wikipedia.org/wiki/Ordinary_least_squares#Estimation). (Note: This is linear regression).
-
-Compare your results to that of using `llsq` from `MultivariateStats.jl` (note: you need to go find the documentation to find out how to use this!). Compare your results to that of using ordinary least squares regression from `GLM.jl`.
-
-#### Regression Problem Part 2
-
-Using your OLS estimator or one of the aforementioned packages, solve for the regression line using the (X,y) data above. Plot the (X,y) scatter plot using `scatter!` from Plots.jl. Add the regression line using `abline!`. Add a title saying "Regression Plot on Fake Data", and label the x and y axis.
 
 #### Logistic Map Problem
 
