@@ -11,7 +11,7 @@ The two most commons tools for coding in Julia are:
 
 Other solutions exist (SublimeText, Emacs, etc.). The general mantra is:
 
-> Jupyter notebooks are for code, Juno is for data. (Mike Innes, developer of Juno)
+> Juno is for code, Jupyter notebooks are for data. (Mike Innes, developer of Juno)
 
 Jupyter notebooks do not easily show code from multiple files, do not have a debugging GUI, and it doesn't have as easy access to a console, making it less friendly for developing large projects (like packages). However, Jupyter notebooks store their outputs in a convenient form, which is good for saving and sharing results. I suggest that you learn both and use the right tool for the right job.
 
@@ -33,11 +33,12 @@ To install Jupyter notebooks (IJulia), use the following commands in the REPL:
 
 
 ```julia
-Pkg.add("IJulia") # This will install the package
-Pkg.clone("https://github.com/UCIDataScienceInitiative/IntroToJulia") # Clone the IntroToJulia Repo
-### Next commands you run each time you open the REPL
+using LibGit2
+# Download the notebooks into the folder IntroToJulia
+LibGit2.clone("https://github.com/UCIDataScienceInitiative/IntroToJulia", "IntroToJulia")
+# Open up IJulia at this location
 using IJulia
-notebook(detached=true,dir=Pkg.dir("IntroToJulia/Notebooks"))
+notebook(detached=true,dir=joinpath(pwd(),"IntroToJulia"))
 ```
 
 ### Installing Juno
@@ -68,7 +69,7 @@ Optional libraries, depending on which projects you explore later, include:
 
 ## Documentation
 
-The Julia documentation can be found at http://docs.julialang.org/en/latest/manual/
+The Julia documentation can be found at http://docs.julialang.org/en/latest
 
 Documentation can be found from the REPL by using `?` in front of a command.
 
@@ -78,8 +79,8 @@ The Juno documentation can be found at http://docs.junolab.org/latest/
 
 The following documentation pages are good pages to read in full:
 
-- [Noteworthy Differences from Other Languages](http://docs.julialang.org/en/release-0.5/manual/noteworthy-differences/)
-- [Performance Tips](http://docs.julialang.org/en/release-0.5/manual/performance-tips/)
+- [Noteworthy Differences from Other Languages](https://docs.julialang.org/en/v1/manual/noteworthy-differences/)
+- [Performance Tips](https://docs.julialang.org/en/v1/manual/performance-tips/)
 - [MATLAB, Python, Julia Syntax Comparison](http://cheatsheets.quantecon.org/)
 
 ## Community

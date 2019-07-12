@@ -90,7 +90,6 @@ plot(t,W',color=:red,xlabel="t",ylabel="W(t)")
 ## Main Reasons to Not Use Julia
 
 - You need low latency (game programming)
-- You need stability. i.e. you are a company and need a large code-base to run without modifications next year
 - It is more complex than other scripting languages: there is a lot you can know
 
 ## The Julia Community: Who is a user?
@@ -132,7 +131,7 @@ No matter who you are, some of the terminology will be familiar, while other par
 ## A Mental Model for Python/R/MATLAB: Talking to a Politician
 
 - These scripting languages were developed to "be easy".
-- You tell them something, and they try to give you want you want.
+- You tell them something, and they try to give you what you want.
 - There may be some things hidden behind the scenes to make everything "work better".
 - They may not give you the fastest reply.
 
